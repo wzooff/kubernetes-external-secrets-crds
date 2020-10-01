@@ -1,0 +1,15 @@
+{{- if .Values.systemManager }}
+---
+apiVersion: 'kubernetes-client.io/v1'
+kind: ExternalSecret
+metadata:
+  name: {{ .Values.name }} # TODO: release name as default
+  namespace: {{ .Release.Namespace }}
+spec:
+  backendType: systemManager
+  data:
+  {{- range $key, $value := .Values.systemManager.data }}
+    - key: "{{ $.Values.systemManager.parameterPrefix }}/{{ $value }}"
+      name: {{ $key }}
+  {{- end }}
+{{- end }}
