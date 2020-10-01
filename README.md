@@ -8,7 +8,7 @@ Allows you to create CRDs for [godaddy/kubernetes-external-secrets](https://gith
 
 ## Installing
 
-```$ helm install my-release-name ./```
+```$ helm install my-release-name https://github.com/wzooff/kubernetes-external-secrets-crds/releases/download/v0.1.1/helm-chart.tgz```
 
 ## Debug
 
@@ -21,9 +21,8 @@ Create ```your-values.yml``` file:
 ```yaml
 name: myapp-external
 systemManager:
-  parameterPrefix: /alpha/beta
   data:
-    foo: bar
+    foo: /alpha/beta/bar
 ```
 
 You will get k8s secret:

@@ -24,7 +24,7 @@ jobs:
           body: |
             Kubernetes External Secrets CRDs
 
-            See [CHANGELOG](https://github.com/wzooff/kubernetes-external-secrets-crds/blob/master/CHANGELOG-0.x.md) for details
+            See [CHANGELOG](https://github.com/wzooff/kubernetes-external-secrets-crds/blob/master/CHANGELOG.md) for details
           draft: false
           prerelease: false
       - name: Upload Release Asset

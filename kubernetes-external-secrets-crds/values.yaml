@@ -1,6 +1,5 @@
 name: kubernetes-external-secrets
 
 systemManager: {}
-  # parameterPrefix: /alpha/beta
   # data:
-  #   foo: bar
+  #   foo: /alpha/beta/bar

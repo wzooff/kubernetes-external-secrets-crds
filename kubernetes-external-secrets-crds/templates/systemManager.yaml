@@ -9,7 +9,7 @@ spec:
   backendType: systemManager
   data:
   {{- range $key, $value := .Values.systemManager.data }}
-    - key: "{{ $.Values.systemManager.parameterPrefix }}/{{ $value }}"
+    - key: {{ $value }}
       name: {{ $key }}
   {{- end }}
 {{- end }}
