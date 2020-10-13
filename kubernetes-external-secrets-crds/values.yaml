@@ -1,4 +1,5 @@
-name: kubernetes-external-secrets
+# specify custom name for secret or will be used release name
+# name: kubernetes-external-secrets
 
 systemManager: {}
   # data:
