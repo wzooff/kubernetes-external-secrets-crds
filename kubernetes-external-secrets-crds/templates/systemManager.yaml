@@ -3,8 +3,8 @@
 apiVersion: 'kubernetes-client.io/v1'
 kind: ExternalSecret
 metadata:
-  name: {{ .Values.name }} # TODO: release name as default
-  namespace: {{ .Release.Namespace }}
+  name: {{ .Values.name | default .Release.Name | quote}}
+  namespace: {{ .Release.Namespace | quote }}
 spec:
   backendType: systemManager
   data:
@@ -12,4 +12,11 @@ spec:
     - key: {{ $value }}
       name: {{ $key }}
   {{- end }}
+  template:
+    metadata:
+      annotations:
+        meta.helm.sh/release-name: {{ .Values.name | default .Release.Name | quote }}
+        meta.helm.sh/release-namespace: {{ .Release.Namespace | quote }}
+      labels:
+        app.kubernetes.io/managed-by: Helm
 {{- end }}
